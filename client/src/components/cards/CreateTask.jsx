@@ -67,7 +67,7 @@ const CreateTask = ({ setCreateTask, createTask }) => {
 
   return (
     <div
-      className={`w-[65%] h-fit pb-[20px]   bg-[#131313] flex flex-col justify-start items-center gap-[20px] absolute top-[15%] left-[20%] rounded-[8px]`}
+      className={`w-[65%] h-fit pb-[20px]   bg-black flex flex-col justify-start items-center gap-[20px] absolute top-[15%] left-[20%] rounded-[8px]`}
     >
       <div className="w-[600px] flex mt-[20px] ml-[40px] justify-start items-center gap-[65%]">
         <span className="text text-white">Create New Project</span>

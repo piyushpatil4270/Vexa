@@ -8,8 +8,8 @@ import {
 import { Link } from "react-router-dom";
 const ProjectCard = ({projectid, title, type, date, projectDescription, userid }) => {
   return (
-    <div className="w-[30%] mt-[10px] mb-[10px] items-start flex flex-col justify-start gap-[8px] cursor-pointer h-[20%] bg-black">
-      <Link className="w-full h-full" to={`${projectid}`}>
+    <div className="w-[30%] mt-[10px] mb-[10px]    gap-[8px] cursor-pointer h-[150px] rounded-[10px] bg-black">
+      <Link className="w-full h-full flex flex-col items-start justify-start gap-[8px]" to={`${projectid}`}>
       <div className="flex w-full h-[35%]">
         {type == "team" ? (
           <div className="md:flex ml-[5%] mt-[3%] bg-[#f14e8a14] justify-start gap-[10px] items-center xs:w-[20%] md:w-[40%] rounded-[2px] h-[65%]">

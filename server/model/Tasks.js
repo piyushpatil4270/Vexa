@@ -21,6 +21,10 @@ const taskSchema = Schema({
     enum: ["company", "team"],
     default: "company",
   },
+  status:{
+    type:String,
+    default:"started"
+ },
   comments: {
     type: Array,
     default: [],

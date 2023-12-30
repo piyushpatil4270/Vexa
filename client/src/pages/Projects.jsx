@@ -4,7 +4,7 @@ import Createtask from "../components/cards/CreateTask";
 import axios from "axios";
 const Projects = ({ createTask, setCreateTask }) => {
   const [tasks, setTasks] = useState(null);
-  const fetchTasks = async () => {
+   const  fetchTasks = async () => {
     const res = await axios
       .get("http://localhost:5000/tasks/alltasks")
       .then((res) => {
@@ -41,4 +41,6 @@ const Projects = ({ createTask, setCreateTask }) => {
   );
 };
 
+
 export default Projects;
+

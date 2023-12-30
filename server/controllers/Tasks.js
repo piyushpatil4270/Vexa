@@ -69,3 +69,23 @@ export const addLog=async(req,res)=>{
         res.status(404).json(error)
     }
 }
+
+export const taskStatistics=async(req,res)=>{
+    try {
+        const tasks=await Tasks.find({})
+        const started=tasks.filter((task)=>(
+            task.status==="started"
+        )
+        )
+        const progress=tasks.filter((task)=>(
+            task.status==="progress"
+        ))
+        const completed=tasks.filter((task)=>(
+            task.status==="completed"
+        ))
+        
+   res.status(202).json({tasks:tasks,started:started,progress:progress,completed:completed})
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}

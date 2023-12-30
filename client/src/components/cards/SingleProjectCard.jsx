@@ -51,7 +51,7 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
   return (
     <div className="w-full h-full flex justify-center items-start">
       {project ? (
-        <div className="flex flex-col items-start justify-start gap-[25px] mt-[20px] w-[80%] bg-[#232323] rounded-[5px] h-fit">
+        <div className="flex flex-col items-start justify-start gap-[25px] mt-[20px] w-[80%] bg-black rounded-[5px] h-fit">
           <div className="flex ml-[25px] mt-[20px]">
             <span className="text text-white text-[18px]">{project.title}</span>
           </div>
