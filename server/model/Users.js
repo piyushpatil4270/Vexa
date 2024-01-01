@@ -18,6 +18,10 @@ const userSchema=Schema({
         require:true,
         type:String
     },
+    profilepic:{
+        type:String,
+        default:"no image"
+    },
     status:{
         type:String,
         default:"inactive"

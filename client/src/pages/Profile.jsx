@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react'
 import CreateTask from '../components/cards/CreateTask'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-
+import Profilepic from "../../src/assets/p12.jpeg"
+import DemoBarChart from '../components/chart/DemoBarChart'
+import { useSelector } from 'react-redux'
 const Profile = ({createTask,setCreateTask}) => {
+  const {currentuser}=useSelector((state)=>state.user1)
+  console.log("currentuser",currentuser)
   const [user,setUser]=useState(null)
   const {userId}=useParams()
   const fetchUser=async()=>{
@@ -22,7 +26,35 @@ const Profile = ({createTask,setCreateTask}) => {
   return (
     <div className='h-full w-full relative'>
        {createTask && <CreateTask setCreateTask={setCreateTask}/>}
-      <span className='text-white'>{user?.email}</span>
+      <div className='md:mt-[20px] md:ml-[20px] md:rounded-[20px] w-[70%] bg-black h-[150px] flex  items-center'>
+      <div className='w-full h-full flex  justify-start items-center'>
+        <div className='ml-[10px] h-full w-[40%] flex justify-center items-center'>
+        <img src={Profilepic} className=' w-[100px] h-[100px] rounded-full object-cover'  />
+        </div>
+        <div className='w-[40%] flex flex-col gap-[8px]'>
+         <span className='text-white text-[18px]'>User10</span>
+         <span className=' text-[12px] text-[#2a4184]'>User10@gmail.com</span>
+         <div className='flex gap-[15px]'>
+          <div className='w-[55px] h-[25px] bg-[#1f732e74] flex items-center justify-center rounded-[5px]'>
+            <span className='text-[#40dc45] text-[14px]'>Admin</span>
+          </div>
+          <div className='w-[55px] h-[25px] bg-[#6523947a] flex items-center justify-center rounded-[5px]'>
+          <span className=' text-[#b455ef] text-[14px] flex items-center justify-center'>Active</span>
+          </div>
+
+         </div>
+        </div>
+      </div>
+      </div>
+     {/*{currentuser.email === user.email && (
+          <div className='w-[70%]'>
+
+          </div>
+     )}*/}
+     <div className='w-[70%] md:ml-[20px] mt-[20px]'>
+      <DemoBarChart/>
+     </div>
+      
   
     </div>
   )
