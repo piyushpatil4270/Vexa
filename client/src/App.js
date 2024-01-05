@@ -25,9 +25,9 @@ function App() {
         <div className={`xs:w-full h-full overflow-scroll sm:w-[80%] bg-[#0d0d0d]`}>
           <Navbar/>
           <Routes>
-            <Route path="/" element={<Dashboard createTask={createTask} setCreateTask={setCreateTask} />} />
-            <Route path="/employees" element={<Employees createTask={createTask} setCreateTask={setCreateTask} />} />
-            <Route path="/projects" element={<Projects createTask={createTask} setCreateTask={setCreateTask} />} />
+            <Route path="/" element={<Dashboard createTask={createTask} user={currentuser} setCreateTask={setCreateTask} />} />
+            <Route path="/employees" element={<Employees createTask={createTask} user={currentuser} setCreateTask={setCreateTask} />} />
+            <Route path="/projects" element={<Projects createTask={createTask} user={currentuser} setCreateTask={setCreateTask} />} />
             <Route path="/projects/:projectId" element={<SingleProjectCard createTask={createTask} setCreateTask={setCreateTask} />} />
             <Route path="/profile/:userId" element={<Profile createTask={createTask} setCreateTask={setCreateTask} />} />
           </Routes>

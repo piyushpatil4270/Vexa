@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CreateTask from "../components/cards/CreateTask"
 import axios from "axios";
-const Dashboard = ({createTask,setCreateTask}) => {
+const Dashboard = ({createTask,setCreateTask,user}) => {
   const [employees, setEmployees] = useState(null);
   const fetchEmployees = async () => {
     try {
@@ -17,8 +17,8 @@ const Dashboard = ({createTask,setCreateTask}) => {
   console.log("employees", employees?.Users);
   return (
     <div className={`relative ${createTask && `backdrop-blur-md`}`}>
-      {createTask&&<CreateTask setCreateTask={setCreateTask} createTask={createTask} />}
-    <div className="flex flex-col w-full=">
+      {createTask && <CreateTask setCreateTask={setCreateTask} createTask={createTask} />}
+    {user.role === "admin" && <div className="flex flex-col w-full=">
       <div className="flex flex-row justify-between items-center h-[40px] w-full mt-2 pl-2 pr-5 bg-black">
         <span className="text-white text-lg flex-1">Name</span>
         <span className="text-white text-lg flex-1">Email</span>
@@ -46,7 +46,7 @@ const Dashboard = ({createTask,setCreateTask}) => {
             );
           })}
       </div>
-    </div>
+    </div>}
     </div>
   );
 };

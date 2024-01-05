@@ -3,7 +3,6 @@ import CreateTask from '../components/cards/CreateTask'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Profilepic from "../../src/assets/p12.jpeg"
-import DemoBarChart from '../components/chart/DemoBarChart'
 import { useSelector } from 'react-redux'
 const Profile = ({createTask,setCreateTask}) => {
   const {currentuser}=useSelector((state)=>state.user1)
@@ -53,7 +52,7 @@ const Profile = ({createTask,setCreateTask}) => {
           </div>
      )}*/}
      <div className='w-[70%] md:ml-[20px] mt-[20px]'>
-      <DemoBarChart/>
+     
      </div>
       
   

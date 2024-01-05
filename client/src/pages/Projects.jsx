@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import ProjectCard from "../components/cards/ProjectCard";
 import Createtask from "../components/cards/CreateTask";
 import axios from "axios";
-const Projects = ({ createTask, setCreateTask }) => {
+import { Try } from "@mui/icons-material";
+const Projects = ({ createTask, setCreateTask,user }) => {
   const [tasks, setTasks] = useState(null);
+  const username=user?.username
    const  fetchTasks = async () => {
-    const res = await axios
+    try {
+      const res = await axios
       .get("http://localhost:5000/tasks/alltasks")
       .then((res) => {
         try {
@@ -15,11 +18,26 @@ const Projects = ({ createTask, setCreateTask }) => {
           console.log("ERROR", error);
         }
       });
-  };
+    } catch (error) {
+      console.log(error)
+    }
+};
+
+  const fetchUserTasks=async()=>{
+   try {
+    const res=await axios.post("http://localhost:5000/tasks/user",{username})
+    .then((res)=>{
+      setTasks(res.data)
+    })
+   } catch (error) {
+    console.log(error)
+   }
+}
 
   useEffect(() => {
-    fetchTasks();
-  },[]);
+   { user.role ==="admin" && fetchTasks()}
+   { user.role ==="employee" && fetchUserTasks()}
+  },[createTask,setCreateTask]);
   return (
     <div className="h-full w-full relative">
       {createTask && <Createtask setCreateTask={setCreateTask} />}

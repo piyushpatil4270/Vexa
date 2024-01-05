@@ -20,7 +20,10 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
   const { projectId } = useParams();
   console.log("ProjectId", projectId);
   const [progress, setProgress] = useState("");
-
+  let generate=false
+  const trigger=()=>{
+    generate=!generate
+  }
   const fetchProject = async () => {
     try {
       const res = await axios
@@ -40,7 +43,8 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
         .then((res) => {
           if (res.status === 202) {
             setProgress("");
-            setProject(res.data)
+            trigger()
+            
           }
         });
     } catch (error) {
@@ -50,7 +54,7 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
 
   useEffect(() => {
     fetchProject();
-  }, []);
+  }, [trigger()]);
   console.log(project);
   return (
     <div className="w-full h-full flex justify-center items-start">
