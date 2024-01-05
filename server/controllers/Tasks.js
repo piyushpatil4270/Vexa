@@ -13,8 +13,8 @@ export const getAllTasks=async(req,res)=>{
 
 export const getUserTasks=async(req,res)=>{
     try {
-        const {userid}=req.body
-        const tasks=await Tasks.find({userid:userid})
+        const {username}=req.body
+        const tasks=await Tasks.find({userid:username})
         res.status(202).json(tasks)
     } catch (error) {
         res.status(404).json(error)
