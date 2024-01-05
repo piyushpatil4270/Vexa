@@ -20,7 +20,7 @@ const Menu = ({createTask,setCreateTask}) => {
     <div className='flex flex-col h-full w-full items-center gap-[30px]'>
      <div className='sm:w-[90%] md:w-[80%] flex sm:gap-[5px] lg:gap-[10px] justify-start items-center pt-[15px]'>
      <img src={Logo} alt='Logo' className='sm:w-[30px] sm:h-[30px] lg:w-[40px] lg:h-[40px]'/>
-     <span className='sm:text-[24px]  lg:text-[32px]  font-medium text-transparent bg-clip-text  bg-gradient-to-r from-violet-900  to-pink-600'>Vexa</span>
+     <span className='sm:text-[24px]  lg:text-[32px]  font-medium text-transparent bg-clip-text  bg-gradient-to-r from-violet-900  to-pink-600'>Hexa</span>
      </div>
      
      <div className={`flex sm:w-[90%] md:w-[80%] bg-transparent items-center justify-start ${currentPage==="dashboard" && `bg-gradient-to-r from-violet-900  to-pink-600`} sm:p-1 lg:p-2.5  gap-2 rounded-[10px] cursor-pointer`} onClick={()=>{setCurrentPage("dashboard")}}>

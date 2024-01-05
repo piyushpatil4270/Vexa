@@ -40,6 +40,7 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
         .then((res) => {
           if (res.status === 202) {
             setProgress("");
+            setProject(res.data)
           }
         });
     } catch (error) {
@@ -58,8 +59,8 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
           <div className="flex  ml-[25px]   mt-[20px]">
             <span className="text text-white text-[18px]">{project.title}</span>
           </div>
-          <div className="flex gap-[100px] ml-[25px] items-center justify-center">
-            <div className="flex  items-center justify-center gap-[10px]">
+          <div className="flex gap-[100px] ml-[25px] items-center">
+            <div className="flex  w-fit items-center justify-center gap-[10px]">
               <img
                 src={profile}
                 alt="user"
@@ -67,7 +68,7 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
               />
               <span className="text text-white w-[50%] text-[15px]">{project.userid}</span>
             </div>
-            <div className="flex gap-[15px] items-center justify-center bg-[#f14e8a14] w-fit pr-2 rounded-[5px]">
+            <div className="flex gap-[15px]  items-center justify-center bg-[#f14e8a14] w-fit pr-2 rounded-[5px]">
               {project.project_type === "company" ? (
                 <>
                   <Apartment
@@ -97,11 +98,8 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
                 </>
               )}
             </div>
-            <div className="flex w-[33%] gap-[20px] items-center justify-start">
-              <span className="text text-white text-[13px]">
-                Started : <></>
-                <span className="text-white text-[13px]">{project.created_at}</span>
-              </span>
+            <div className="flex w-fit gap-[20px] items-center justify-start">
+            <span className="text-white text-[13px] ">Started <></> {project.created_at}</span>
             </div>
           </div>
           <div className="flex ml-[25px] mt-[20px]">

@@ -9,7 +9,7 @@ import {
   VisibilityOff,
 } from "@mui/icons-material";
 
-const SignUp = ({setOpenSignUp}) => {
+const SignUp = ({ setOpenSignUp }) => {
   const [user, setUser] = useState("admin");
   const [userEmployee, setuserEmployee] = useState("employee");
   const [userAdmin, setUserAdmin] = useState("admin");
@@ -34,7 +34,7 @@ const SignUp = ({setOpenSignUp}) => {
   const handleinputChange = (e) => {
     const { name, value } = e.target;
     if (name === "username") {
-      console.log(name,value)
+      console.log(name, value);
       if (!value) {
         setButtonDisabled(true);
         seterrormessage({
@@ -102,8 +102,7 @@ const SignUp = ({setOpenSignUp}) => {
             "Password must contain atleast one lowercase, uppercase, number and special character!",
         });
         setButtonDisabled(true);
-      } 
-      else {
+      } else {
         seterrormessage({
           ...errormessage,
           password: "",
@@ -125,7 +124,6 @@ const SignUp = ({setOpenSignUp}) => {
         });
       }
     }
-    
 
     setFormData((prevData) => ({
       ...prevData,
@@ -160,18 +158,30 @@ const SignUp = ({setOpenSignUp}) => {
 
       .then((res) => {
         if (res.status === 200) {
-          setButtonDisabled(true)
+          setButtonDisabled(true);
           seterrormessage({
             ...errormessage,
             apierror: "Email already exists",
           });
         } else if (res.status === 230) {
-          registerUser(formData)
-          
+          registerUser(formData);
+          setFormData({
+            username: "",
+            email: "",
+            work: user,
+            password: "",
+          });
+          seterrormessage({
+            username: "",
+            email: "",
+            work: "",
+            password: "",
+            apierror: "",
+          })
         }
       });
   };
-  console.log("errormsg",errormessage)
+  console.log("errormsg", errormessage);
   return (
     <div className="bg-[#0d0d0d] xs:w-[220px] sm:w-[500px] md:w-[600px]  flex flex-col  gap-4 rounded-[8px] ">
       <h3 className="text-white xs:text-[20px] md:text-[28px] xs:ml-5 xs:mt-4 md:ml-7">
@@ -184,12 +194,12 @@ const SignUp = ({setOpenSignUp}) => {
               userEmployee === user && `border-b-2 border-white`
             }`}
             value="employee"
-            onClick={(e) =>{ 
-              setUser(e.target.value)
+            onClick={(e) => {
+              setUser(e.target.value);
               setFormData({
                 ...formData,
-                work:e.target.value
-              })
+                work: e.target.value,
+              });
             }}
           >
             Employee
@@ -199,12 +209,12 @@ const SignUp = ({setOpenSignUp}) => {
               userAdmin === user && `border-b-2 border-white`
             }`}
             value="admin"
-            onClick={(e) =>{
-              setUser(e.target.value)
+            onClick={(e) => {
+              setUser(e.target.value);
               setFormData({
                 ...formData,
-                work:e.target.value
-              })
+                work: e.target.value,
+              });
             }}
           >
             Admin
@@ -295,12 +305,20 @@ const SignUp = ({setOpenSignUp}) => {
           }`}
           onClick={(e) => handleSubmit(e)}
         >
-        Sign Up
+          Sign Up
         </button>
         <div className="flex w-full justify-center items-center">
-        <a href='#' className='text text-purple-800 underline ' onClick={()=>{setOpenSignUp(false)}}>Already have an account? Sign In</a>
+          <a
+            href="#"
+            className="text text-purple-800 underline "
+            onClick={() => {
+              setOpenSignUp(false);
+            }}
+          >
+            Already have an account? Sign In
+          </a>
         </div>
-       </div>
+      </div>
     </div>
   );
 };

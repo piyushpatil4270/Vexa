@@ -23,29 +23,30 @@ const Profile = ({createTask,setCreateTask}) => {
   useEffect(()=>{
    fetchUser()
   },[])
+  console.log("user-profile",user)
   return (
     <div className='h-full w-full relative'>
        {createTask && <CreateTask setCreateTask={setCreateTask}/>}
-      <div className='md:mt-[20px] md:ml-[20px] md:rounded-[20px] w-[70%] bg-black h-[150px] flex  items-center'>
+      {user?(<div className='md:mt-[20px] md:ml-[20px] md:rounded-[20px] w-[70%] bg-black h-[150px] flex  items-center'>
       <div className='w-full h-full flex  justify-start items-center'>
         <div className='ml-[10px] h-full w-[40%] flex justify-center items-center'>
         <img src={Profilepic} className=' w-[100px] h-[100px] rounded-full object-cover'  />
         </div>
         <div className='w-[40%] flex flex-col gap-[8px]'>
-         <span className='text-white text-[18px]'>User10</span>
-         <span className=' text-[12px] text-[#2a4184]'>User10@gmail.com</span>
+         <span className='text-white text-[18px]'>{user.username}</span>
+         <span className=' text-[12px] text-[#2a4184]'>{user.email}</span>
          <div className='flex gap-[15px]'>
-          <div className='w-[55px] h-[25px] bg-[#1f732e74] flex items-center justify-center rounded-[5px]'>
-            <span className='text-[#40dc45] text-[14px]'>Admin</span>
+          <div className='w-fit py-1 px-1 bg-[#1f732e74] flex items-center justify-center rounded-[5px]'>
+            <span className='text-[#40dc45] text-[14px] '>{user.role}</span>
           </div>
-          <div className='w-[55px] h-[25px] bg-[#6523947a] flex items-center justify-center rounded-[5px]'>
-          <span className=' text-[#b455ef] text-[14px] flex items-center justify-center'>Active</span>
+          <div className='w-fit py-1 px-1 bg-[#6523947a] flex items-center justify-center rounded-[5px]'>
+          <span className=' text-[#b455ef] text-[14px] flex items-center justify-center'>active</span>
           </div>
 
          </div>
         </div>
       </div>
-      </div>
+      </div>):(<span className='text-white'>Loading...</span>)}
      {/*{currentuser.email === user.email && (
           <div className='w-[70%]'>
 
