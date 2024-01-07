@@ -24,9 +24,9 @@ const Profile = ({createTask,setCreateTask}) => {
   },[])
   console.log("user-profile",user)
   return (
-    <div className='h-full w-full relative'>
+    <div className='h-full w-full relative flex flex-col items-center'>
        {createTask && <CreateTask setCreateTask={setCreateTask}/>}
-      {user?(<div className='md:mt-[20px] md:ml-[20px] md:rounded-[20px] w-[70%] bg-black h-[150px] flex  items-center'>
+      {user?(<div className='mt-[20px] md:ml-[20px] rounded-[20px] md:w-[70%] xs:w-[90%] bg-black h-[150px]   items-center'>
       <div className='w-full h-full flex  justify-start items-center'>
         <div className='ml-[10px] h-full w-[40%] flex justify-center items-center'>
         <img src={Profilepic} className=' w-[100px] h-[100px] rounded-full object-cover'  />

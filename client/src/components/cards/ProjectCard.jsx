@@ -8,15 +8,15 @@ import {
 import { Link } from "react-router-dom";
 const ProjectCard = ({projectid, title, type, date, projectDescription, userid }) => {
   return (
-    <div className="w-[30%] mt-[10px] mb-[10px]    gap-[8px] cursor-pointer h-[150px] rounded-[10px] bg-black">
+    <div className="md:w-[40%] lg:w-[30%] mt-[10px] mb-[10px] xs:w-[40%]   gap-[8px] cursor-pointer h-[150px] xs:h-[25%] rounded-[10px] bg-black">
       <Link className="w-full h-full flex flex-col items-start justify-start gap-[8px]" to={`${projectid}`}>
       <div className="flex w-full h-[35%]">
         {type == "team" ? (
-          <div className="md:flex ml-[5%] mt-[3%] bg-[#f14e8a14] justify-start gap-[10px] items-center xs:w-[20%] md:w-[40%] rounded-[2px] h-[65%]">
+          <div className="flex ml-[5%] mt-[3%] bg-[#f14e8a14] justify-start gap-[10px] items-center xs:w-[20%] md:w-[40%] rounded-[2px] h-[65%]">
             <Diversity1
               style={{ color: "#ca2c88", fontSize: "15px", marginLeft: "10px" }}
             />
-            <span className="xs:hidden md:flex text text-[#ca2c88] text-[15px]">
+            <span className="xs:hidden md:flex text text-[#ca2c88] lg:text-[15px] mdtext-[13px]">
               Team
             </span>
           </div>
@@ -25,7 +25,7 @@ const ProjectCard = ({projectid, title, type, date, projectDescription, userid }
             <Apartment
               style={{ color: "#ca2c88", fontSize: "15px", marginLeft: "10px" }}
             />
-            <span className="xs:hidden md:flex  text-[#ca2c88] text-[15px]">
+            <span className="xs:hidden md:flex  text-[#ca2c88] lg:text-[15px] md:text-[13px]">
               Company
             </span>
           </div>
@@ -34,7 +34,7 @@ const ProjectCard = ({projectid, title, type, date, projectDescription, userid }
           <Person
             style={{ color: "#caaa2c", fontSize: "15px", marginLeft: "10px" }}
           />
-          <span className="xs:hidden md:flex text-[#caaa2c] overflow-hidden text-ellipsis text-[15px]">
+          <span className="xs:hidden md:flex text-[#caaa2c] overflow-hidden text-ellipsis lg:text-[15px] md:text-[13px]">
             {userid}
           </span>
         </div>

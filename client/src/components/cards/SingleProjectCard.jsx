@@ -57,18 +57,19 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
   }, [trigger()]);
   console.log(project);
   return (
-    <div className="w-full h-full flex justify-center items-start">
+    <div className="w-full h-full  flex justify-center  items-start">
       {project ? (
-        <div className="flex flex-col items-start justify-start gap-[25px] mt-[20px] w-[80%] bg-black rounded-[5px] h-fit">
-          <div className="flex  ml-[25px]   mt-[20px]">
+        <>
+        <div className="md:flex flex-col xs:hidden  items-start justify-start gap-[25px] mt-[20px] w-[80%] bg-black rounded-[5px] h-fit">
+          <div className="flex   ml-[25px]   mt-[20px]">
             <span className="text text-white text-[18px]">{project.title}</span>
           </div>
-          <div className="flex gap-[100px] ml-[25px] items-center">
-            <div className="flex  w-fit items-center justify-center gap-[10px]">
+          <div className="flex gap-[100px] mx-[25px] items-center">
+            <div className="flex  w-fit items-center justify-center gap-[4%]">
               <img
                 src={profile}
                 alt="user"
-                className="md:h-[50px] md:w-[50px] xs:h-[35px] xs:w-[35px] xs:rounded-[50%] md:rounded-full object-cover"
+                className="sm:h-[30px] sm:w-[30px]  md:h-[50px] md:w-[50px] xs:h-[35px] xs:w-[35px] xs:rounded-[50%] md:rounded-full object-cover"
               />
               <span className="text text-white w-[50%] text-[15px]">{project.userid}</span>
             </div>
@@ -106,7 +107,7 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
             <span className="text-white text-[13px] ">Started <></> {project.created_at}</span>
             </div>
           </div>
-          <div className="flex ml-[25px] mt-[20px]">
+          <div className="flex mx-[25px] mt-[20px]">
             <span className="text text-white text-[15px]">
               {project.description ? (
                 project.description
@@ -212,6 +213,10 @@ const SingleProjectCard = ({ createTask, setCreateTask }) => {
             )}
           </div>
         </div>
+        <div className="xs:visible md:hidden">
+          
+        </div>
+        </>
       ) : (
         "LOADING..."
       )}

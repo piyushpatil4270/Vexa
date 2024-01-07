@@ -15,26 +15,26 @@ const Navbar = () => {
       </div>
       <div className='w-full h-full flex xs:justify-end md:justify-between items-center xs:gap-[20px] md:gap-0'>
         <div className='xs:hidden md:flex sm:ml-2 sm:mr-2'>
-        <span className='text text-white'></span>
+        <span className='text text-white xs:text-[13px]'></span>
         </div>
         <div className='xs:flex items-center justify-center sm:hidden'>
          <Link to="/">
-         <span className='text text-white'>Home</span>
+         <span className='text text-white xs:text-[13px]'>Home</span>
          </Link> 
         </div>
         <div className='xs:flex items-center justify-center sm:hidden'>
         <Link to={currentuser==="admin"?("/allprojects"):("/projects")}>
-        <span className='text text-white'>Projects</span>
+        <span className='text text-white xs:text-[13px]'>Projects</span>
         </Link>  
         </div>
        
         <div className='xs:flex items-center justify-center sm:hidden'>
          <Link to="/profile">
-         <span className='text text-white'>Profile</span>
+         <span className='text text-white xs:text-[13px]'>Profile</span>
          </Link> 
         </div>
         <div className='xs:flex items-center justify-center sm:hidden rounded-[50px] bg-gradient-to-r from-violet-900  to-pink-600 flex w-[70px]'>
-          <span className='text text-white' onClick={()=>dispatch(logoutUser())}>Logout</span>
+          <span className='text text-white xs:text-[13px]' onClick={()=>dispatch(logoutUser())}>Logout</span>
         </div>
         <div className='flex justify-center items-center gap-[10px] ml-2 mr-2'>
         {/*<img src="" alt='' className='w-[30px] h-[30px] rounded-full object-contain'   style={{backgroundColor:"red"}} />*/}
