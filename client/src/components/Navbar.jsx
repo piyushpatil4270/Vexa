@@ -9,11 +9,11 @@ const Navbar = () => {
 
   return (
     <div className='h-[65px] w-full bg-[#1a1a1a] xs:flex sm:block'>
-      <div className='xs:flex justify-start items-center gap-[15px] ml-[10px] sm:hidden'>
-      <img src={Logo} alt='Logo' className='w-[35px] h-[35px]'/>
-     <span className='text-[20px]  font-medium text-transparent bg-clip-text  bg-gradient-to-r from-violet-900  to-pink-600'>Doppler</span>
+      <div className='xs:hidden justify-start items-center xs:gap-[8px] sm:gap-[15px] ml-[10px] sm:hidden'>
+      <img src={Logo} alt='Logo' className='xs:hidden sm:flex sm:w-[35px] sm:h-[35px]'/>
+     <span className='text-[20px] xs:hidden sm:flex  font-medium text-transparent bg-clip-text  bg-gradient-to-r from-violet-900  to-pink-600'>Doppler</span>
       </div>
-      <div className='w-full h-full flex xs:justify-end md:justify-between items-center xs:gap-[20px] md:gap-0'>
+      <div className='w-full h-full flex xs:justify-center xs:ml-[5%] md:justify-between items-center xs:gap-[30px] md:gap-0'>
         <div className='xs:hidden md:flex sm:ml-2 sm:mr-2'>
         <span className='text text-white xs:text-[13px]'></span>
         </div>
